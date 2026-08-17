@@ -1,6 +1,10 @@
-# Firmware source
+# Original firmware source
 
-Open `VRChat_CYD_Pager/VRChat_CYD_Pager.ino` in Arduino IDE 2.x.
+`VRChat_CYD_Pager/VRChat_CYD_Pager.ino` is the complete stable direct-pipeline
+sketch supplied for this project. It scans and joins Wi-Fi through the CYD
+touchscreen, authenticates directly with VRChat, supports TOTP/email OTP, saves
+the authenticated session, and consumes the VRChat Pipeline WebSocket. It does
+not use OSC or a captive portal.
 
 ## Reproducible build
 
@@ -12,9 +16,10 @@ Open `VRChat_CYD_Pager/VRChat_CYD_Pager.ino` in Arduino IDE 2.x.
 - CPU frequency: **240 MHz**
 - PSRAM: **Disabled**
 
-The sketch intentionally uses only libraries bundled with the ESP32 Arduino core.
-Run `scripts/build-firmware.ps1` from PowerShell to compile, export, merge, hash, and
-copy the browser-installable image into `docs/firmware/`.
+Libraries: TFT_eSPI 2.5.43, XPT2046_Touchscreen 1.4, ArduinoJson 7.4.3, and
+ArduinoWebsockets 0.5.4. Replace TFT_eSPI's `User_Setup.h` with
+`firmware/TFT_eSPI_User_Setup.h` before compiling. Run
+`scripts/build-firmware.ps1` to compile, merge, hash, and copy the browser image.
 
 ## Pin map
 
@@ -25,7 +30,9 @@ copy the browser-installable image into `docs/firmware/`.
 | ILI9341 MISO | 12 |
 | ILI9341 CS | 15 |
 | ILI9341 DC | 2 |
-| ILI9341 reset | 4 |
+| ILI9341 reset | Connected to board reset (`-1` in TFT_eSPI) |
 | Backlight | 21 |
-| BOOT/config reset | 0 |
-
+| Touch CS / IRQ | 33 / 36 |
+| Touch MOSI / MISO / CLK | 32 / 39 / 25 |
+| RGB LED | 4 / 16 / 17 |
+| Audio | 26 |

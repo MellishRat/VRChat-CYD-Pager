@@ -13,5 +13,6 @@ jobs:
       - run: arduino-cli config init
       - run: arduino-cli core update-index
       - run: arduino-cli core install esp32:esp32@3.3.11
+      - run: arduino-cli lib install "TFT_eSPI@2.5.43" "XPT2046_Touchscreen@1.4" "ArduinoJson@7.4.3" "ArduinoWebsockets@0.5.4"
+      - run: cp firmware/TFT_eSPI_User_Setup.h "$HOME/Arduino/libraries/TFT_eSPI/User_Setup.h"
       - run: arduino-cli compile --fqbn esp32:esp32:esp32:FlashMode=dio,FlashFreq=80,FlashSize=4M,PartitionScheme=default,CPUFreq=240,PSRAM=disabled firmware/VRChat_CYD_Pager
-

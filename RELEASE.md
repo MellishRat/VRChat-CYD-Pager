@@ -16,12 +16,12 @@ always points to a versioned, merged firmware image committed under
 
 ## Hardware smoke test
 
-- New install erases settings and starts `CYD-Pager-xxxx` setup mode.
-- The captive portal saves 2.4 GHz Wi-Fi credentials and the device reconnects.
-- The footer shows the correct LAN IP and UDP port.
-- An OSC string at `/cyd/message` renders correctly.
-- A forwarded VRChat `/chatbox/input` string renders correctly.
-- Holding BOOT for five seconds erases settings and returns to setup mode.
+- New install opens the touchscreen Wi-Fi scan.
+- On-device password entry connects to a 2.4 GHz network and survives restart.
+- VRChat username/password login and TOTP or email OTP verification work.
+- A successful session survives restart and reconnects to the Pipeline.
+- Invites, friend events, boops, group events, and system alerts render correctly.
+- Touch navigation, RGB notification alerts, audio, and display timeout work.
 
 ## Publish
 

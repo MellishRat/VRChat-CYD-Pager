@@ -1,20 +1,17 @@
 # VRChat CYD Pager
 
-A Wi-Fi OSC message display for the common **ESP32-2432S028R Cheap Yellow
-Display**. Flash it from a browser, connect it to 2.4 GHz Wi-Fi, then forward
-VRChat chatbox OSC messages to the IP shown on screen.
+A standalone VRChat notification pager for the common **ESP32-2432S028R Cheap
+Yellow Display**. It connects directly to VRChat's API and Pipeline WebSocket—no
+OSC router, companion application, or captive portal is involved.
 
 ## Install
 
 Open the [browser installer](https://mellishrat.github.io/VRChat-CYD-Pager/) in
 desktop Chrome or Edge and connect the CYD over a data-capable USB cable.
 
-After installation, join the `CYD-Pager-xxxx` Wi-Fi network and enter your Wi-Fi
-details at `http://192.168.4.1`. The pager displays its LAN address and UDP port.
-
-> VRChat emits OSC locally on the PC. An OSC router/bridge must forward
-> `/chatbox/input` to the pager's LAN address. See
-> [Troubleshooting](docs/TROUBLESHOOTING.md#osc).
+After installation, use the CYD touchscreen to select your Wi-Fi network and
+enter its password. Then enter your VRChat credentials on the device and finish
+TOTP or email verification if requested. The authenticated session is saved.
 
 ## Repository layout
 
@@ -26,18 +23,19 @@ details at `http://192.168.4.1`. The pager displays its LAN address and UDP port
 | `scripts/build-firmware.ps1` | Reproducible Windows build/release script |
 | `.github/workflows/` | Compile verification and Pages deployment |
 
-## Controls and endpoints
+## Features
 
-- Hold **BOOT during reset**: force setup mode.
-- Hold **BOOT for 5 seconds**: erase Wi-Fi settings and restart.
-- `http://<pager-ip>/`: change Wi-Fi, name, or UDP port.
-- OSC `/chatbox/input`: reads the first string argument from VRChat chatbox data.
-- OSC `/cyd/message`: reads one string argument for direct testing/integrations.
+- On-device Wi-Fi scan, password entry, and saved credentials.
+- Direct VRChat login with TOTP and email OTP support.
+- Saved authentication session and quiet Pipeline reconnection.
+- Invites, friend events, boops, group events, and system alerts.
+- Touchscreen notification detail views, RGB LED alerts, and audio cues.
+- Configurable time zone and three-minute display timeout.
 
 ## Build from source
 
-See [firmware/README.md](firmware/README.md). Release 1.0.0 is built with ESP32
-Arduino core 3.3.11 and contains no third-party Arduino libraries.
+See [firmware/README.md](firmware/README.md). Firmware 0.5.0 is built with ESP32
+Arduino core 3.3.11 and the pinned libraries documented there.
 
 ## Release checklist
 
