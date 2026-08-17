@@ -1,0 +1,17 @@
+name: Build firmware
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths: ['firmware/**', '.github/workflows/firmware.yml']
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - run: arduino-cli config init
+      - run: arduino-cli core update-index
+      - run: arduino-cli core install esp32:esp32@3.3.11
+      - run: arduino-cli compile --fqbn esp32:esp32:esp32:FlashMode=dio,FlashFreq=80,FlashSize=4M,PartitionScheme=default,CPUFreq=240,PSRAM=disabled firmware/VRChat_CYD_Pager
+

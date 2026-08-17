@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#081525">
+  <title>VRChat CYD Pager Installer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav><a href="#install">Install</a><a href="#setup">Set up</a><a href="#help">Help</a><a href="https://github.com/MellishRat/VRChat-CYD-Pager">GitHub</a></nav>
+  <main>
+    <header><span class="eyebrow">ESP32-2432S028R</span><h1>Your VRChat messages,<br><em>on a tiny desk pager.</em></h1><p>Install over USB from Chrome or Edge. No Arduino IDE required.</p></header>
+    <section id="install" class="card install"><div><span class="step">01</span><h2>Flash the pager</h2><p>Connect the CYD with a data-capable USB cable, then choose its serial port. The first install erases saved settings.</p></div><esp-web-install-button manifest="manifest.json"><button slot="activate">Connect &amp; install</button><span slot="unsupported">Use desktop Chrome or Edge with Web Serial enabled.</span></esp-web-install-button></section>
+    <section id="setup"><span class="step">02</span><h2>Join Wi-Fi</h2><div class="grid"><article><b>1</b><h3>Find the setup network</h3><p>After flashing, connect your phone or computer to <code>CYD-Pager-xxxx</code>.</p></article><article><b>2</b><h3>Open setup</h3><p>The portal should appear. If it does not, visit <code>192.168.4.1</code>.</p></article><article><b>3</b><h3>Enter details</h3><p>Save your 2.4 GHz Wi-Fi credentials and OSC port, normally <code>9001</code>.</p></article></div></section>
+    <section class="card"><span class="step">03</span><h2>Route OSC</h2><p>VRChat emits OSC to localhost. Use an OSC router on the VRChat PC to forward UDP port 9001 to the IP shown along the bottom of the pager. Forward <code>/chatbox/input</code>, or send a string directly to <code>/cyd/message</code>.</p></section>
+    <section id="help"><span class="step">HELP</span><h2>Troubleshooting</h2><details><summary>No serial port appears</summary><p>Use a USB data cable, install the board's CH340 driver if Windows shows an unknown device, close Arduino Serial Monitor, and reconnect.</p></details><details><summary>Install cannot connect</summary><p>Hold BOOT, click install, release BOOT when “Connecting” appears. Some boards need a quick press of EN/RST.</p></details><details><summary>Setup network does not appear</summary><p>Hold BOOT while resetting the board. Keep holding until SETUP MODE appears.</p></details><details><summary>Pager is online but receives nothing</summary><p>Confirm the target IP and UDP port in the OSC router, allow UDP through the PC firewall, and ensure both devices are on the same LAN. Guest Wi-Fi often blocks device-to-device traffic.</p></details><details><summary>Wrong Wi-Fi details</summary><p>Hold BOOT for five seconds while the pager is running. It clears saved settings and restarts the setup portal.</p></details>
+    <footer><a href="firmware/vrchat-cyd-pager-v1.0.0.bin" download>Download firmware</a><a href="firmware/vrchat-cyd-pager-v1.0.0.sha256" download>SHA-256</a><a href="https://github.com/MellishRat/VRChat-CYD-Pager/tree/main/firmware">Arduino source</a><p>Firmware v1.0.0 · MIT licensed</p></footer>
+  </main>
+</body>
+</html>

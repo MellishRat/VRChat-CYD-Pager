@@ -1,0 +1,11 @@
+changelog:
+  exclude:
+    labels: [skip-changelog]
+  categories:
+    - title: Firmware
+      labels: [firmware]
+    - title: Installer and documentation
+      labels: [installer, documentation]
+    - title: Other changes
+      labels: ['*']
+
