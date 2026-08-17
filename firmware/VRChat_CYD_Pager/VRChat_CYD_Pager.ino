@@ -56,7 +56,17 @@ using namespace websockets;
 // on the touchscreen and stored in ESP32 Preferences.
 
 const char* USER_AGENT =
-    "MellishVRChatPager/0.5 (https://www.mellishpenthouse.com/)";
+    "MellishVRChatPager/0.5.1 (https://www.mellishpenthouse.com/)";
+
+// Use public resolvers instead of relying on the DNS server supplied by the
+// local router. DHCP still supplies the pager's IP address, gateway and mask.
+const IPAddress PRIMARY_DNS(
+  8, 8, 8, 8
+);
+
+const IPAddress SECONDARY_DNS(
+  1, 1, 1, 1
+);
 
 
 // ============================================================
@@ -8655,6 +8665,22 @@ bool connectWiFiCredentials(
   );
 
 
+  if (
+    !WiFi.config(
+      INADDR_NONE,
+      INADDR_NONE,
+      INADDR_NONE,
+      PRIMARY_DNS,
+      SECONDARY_DNS
+    )
+  ) {
+
+    Serial.println(
+      "Failed to configure DNS."
+    );
+  }
+
+
   WiFi.begin(
     ssid.c_str(),
     password.length()
@@ -8707,6 +8733,26 @@ bool connectWiFiCredentials(
 
   Serial.println(
     WiFi.localIP()
+  );
+
+
+  Serial.print(
+    "Primary DNS: "
+  );
+
+
+  Serial.println(
+    WiFi.dnsIP(0)
+  );
+
+
+  Serial.print(
+    "Secondary DNS: "
+  );
+
+
+  Serial.println(
+    WiFi.dnsIP(1)
   );
 
 
@@ -9393,4 +9439,3 @@ void loop() {
 
   yield();
 }
-

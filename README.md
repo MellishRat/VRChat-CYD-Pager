@@ -45,7 +45,7 @@ credentials and the authenticated VRChat session are saved on the pager.
 
 ## Build from source
 
-See [firmware/README.md](firmware/README.md). Firmware 0.5.0 is built with ESP32
+See [firmware/README.md](firmware/README.md). Firmware 0.5.1 is built with ESP32
 Arduino core 3.3.11 and the pinned libraries documented there.
 
 ## Release checklist
