@@ -56,3 +56,32 @@ Arduino core 3.3.11 and the pinned libraries documented there.
 4. Tag `vX.Y.Z`; attach the `.bin`, `.sha256`, and source archive to the release.
 
 Licensed under the [MIT License](LICENSE).
+
+## Interface screenshots
+
+These clean renders show the pager's 320×240 touchscreen interface. Example
+account, network, and notification names are fictional.
+
+| Boot | Wi-Fi selection |
+|---|---|
+| ![VRChat Pager boot screen](screenshots/01-boot.png) | ![On-device Wi-Fi network selection](screenshots/02-wifi-scan.png) |
+
+| VRChat login | Two-factor authentication |
+|---|---|
+| ![On-device VRChat login screen](screenshots/03-vrchat-login.png) | ![VRChat two-factor authentication keypad](screenshots/04-two-factor-authentication.png) |
+
+| Connected home screen | Notifications |
+|---|---|
+| ![Connected standalone pager home screen](screenshots/05-home.png) | ![VRChat notifications list](screenshots/06-notifications.png) |
+
+| Friend events | Group activity |
+|---|---|
+| ![VRChat friend event timeline](screenshots/07-friend-events.png) | ![VRChat group activity timeline](screenshots/08-group-events.png) |
+
+| Notification details | Advanced information |
+|---|---|
+| ![VRChat notification detail screen](screenshots/09-notification-detail.png) | ![Pager information and advanced controls](screenshots/10-advanced.png) |
+
+| Time-zone settings |
+|---|
+| ![Pager time-zone settings](screenshots/11-time-zone.png) |
