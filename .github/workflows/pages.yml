@@ -26,6 +26,10 @@ jobs:
         with:
           path: docs
       - name: Validate installer release files
-        run: test -s docs/firmware/vrchat-cyd-pager-v0.5.1.bin && sha256sum -c <(printf "%s  %s\n" "$(cat docs/firmware/vrchat-cyd-pager-v0.5.1.sha256)" docs/firmware/vrchat-cyd-pager-v0.5.1.bin)
+        run: |
+          test -s docs/firmware/vrchat-cyd-pager-v0.5.2.bin
+          test -s docs/firmware/vrchat-cyd-pager-v0.5.2-inversion-off.bin
+          sha256sum -c <(printf "%s  %s\n" "$(cat docs/firmware/vrchat-cyd-pager-v0.5.2.sha256)" docs/firmware/vrchat-cyd-pager-v0.5.2.bin)
+          sha256sum -c <(printf "%s  %s\n" "$(cat docs/firmware/vrchat-cyd-pager-v0.5.2-inversion-off.sha256)" docs/firmware/vrchat-cyd-pager-v0.5.2-inversion-off.bin)
       - id: deployment
         uses: actions/deploy-pages@v4

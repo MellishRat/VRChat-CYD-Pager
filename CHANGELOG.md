@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2 - 2026-08-18
+
+- Added separate standard and inversion-off browser firmware builds for the two
+  LCD panel variants found on visually identical CYD boards.
+- Added clearly labelled installer choices and inverted-colour troubleshooting.
+
 ## 0.5.1 - 2026-08-17
 
 - Bypassed unreliable router-provided DNS by configuring Google DNS as the

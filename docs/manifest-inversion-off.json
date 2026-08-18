@@ -1,12 +1,12 @@
 {
-  "name": "VRChat CYD Pager",
+  "name": "VRChat CYD Pager - Inverted Colour Fix",
   "version": "0.5.2",
   "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32",
       "parts": [
-        { "path": "firmware/vrchat-cyd-pager-v0.5.2.bin", "offset": 0 }
+        { "path": "firmware/vrchat-cyd-pager-v0.5.2-inversion-off.bin", "offset": 0 }
       ]
     }
   ]

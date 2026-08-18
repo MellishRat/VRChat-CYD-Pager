@@ -56,7 +56,7 @@ using namespace websockets;
 // on the touchscreen and stored in ESP32 Preferences.
 
 const char* USER_AGENT =
-    "MellishVRChatPager/0.5.1 (https://www.mellishpenthouse.com/)";
+    "MellishVRChatPager/0.5.2 (https://www.mellishpenthouse.com/)";
 
 // Use public resolvers instead of relying on the DNS server supplied by the
 // local router. DHCP still supplies the pager's IP address, gateway and mask.
@@ -67,6 +67,10 @@ const IPAddress PRIMARY_DNS(
 const IPAddress SECONDARY_DNS(
   1, 1, 1, 1
 );
+
+#ifndef CYD_DISPLAY_INVERSION_OFF
+#define CYD_DISPLAY_INVERSION_OFF 0
+#endif
 
 
 // ============================================================
@@ -8910,6 +8914,15 @@ void setup() {
   // TFT
 
   tft.init();
+
+
+#if CYD_DISPLAY_INVERSION_OFF
+  // Some visually identical CYD batches use a panel with the opposite
+  // inversion polarity. The alternate browser build enables this override.
+  tft.invertDisplay(
+    false
+  );
+#endif
 
 
   tft.setRotation(

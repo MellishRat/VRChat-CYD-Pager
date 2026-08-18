@@ -19,6 +19,11 @@ ESP32 into firmware-download mode before starting the installation:
 4. Keep holding **BOOT** until the installer begins erasing or writing the new
    firmware, then release it.
 
+Start with **Standard display**. If the screen appears pale, negative, or has
+inverted colours, return to the browser installer and choose **Inverted-colour
+display fix**. Different CYD production batches can require opposite LCD
+inversion settings.
+
 After installation, reset the CYD if it does not restart automatically. Use its
 touchscreen to select your Wi-Fi network and enter its password, then enter your
 VRChat credentials and complete TOTP or email verification if requested. Wi-Fi
@@ -45,7 +50,7 @@ credentials and the authenticated VRChat session are saved on the pager.
 
 ## Build from source
 
-See [firmware/README.md](firmware/README.md). Firmware 0.5.1 is built with ESP32
+See [firmware/README.md](firmware/README.md). Firmware 0.5.2 is built with ESP32
 Arduino core 3.3.11 and the pinned libraries documented there.
 
 ## Release checklist

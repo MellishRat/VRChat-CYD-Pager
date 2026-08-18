@@ -20,6 +20,10 @@ Libraries: TFT_eSPI 2.5.43, XPT2046_Touchscreen 1.4, ArduinoJson 7.4.3, and
 ArduinoWebsockets 0.5.4. Replace TFT_eSPI's `User_Setup.h` with
 `firmware/TFT_eSPI_User_Setup.h` before compiling. Run
 `scripts/build-firmware.ps1` to compile, merge, hash, and copy the browser image.
+The release script builds both the standard image and an inversion-off image for
+CYD production batches whose LCD colours otherwise appear pale or negative. For
+a manual Arduino IDE build of that panel variant, change `TFT_INVERSION_ON` to
+`TFT_INVERSION_OFF` in the supplied TFT_eSPI setup before compiling.
 
 ## Pin map
 
